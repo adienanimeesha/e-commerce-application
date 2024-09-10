@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ruhl9_e7oct-5a21+b9o-6s^jbu-4d!_+04r1kg(r507lu@3od
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "adiena-nimeesha-ecommerceapplication.pbp.cs.ui.ac.id"]
 
 
 # Application definition
