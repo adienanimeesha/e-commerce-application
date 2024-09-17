@@ -1,8 +1,42 @@
-<h1>{{ application_name }}</h1>
+{% extends 'base.html' %}
+{% block content %}
+<h1>Vortex Vision</h1>
 
+<h5>Application Name: </h5>
+<p>{{ app_name }}<p>  
 
-<h5>Name: </h5>
-<p>{{ name }}<p>
-<h5>Class: </h5>
-<p>{{ class }}<p>
+<h5>Name:</h5>
+<p>{{ name }}</p>
 
+<h5>Class:</h5>
+<p>{{ class }}</p>
+
+{% if not product_entries %}
+<p>There are no product data in Vortex Vision.</p>
+{% else %}
+<table>
+  <tr>
+    <th>Product Name</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+
+  {% comment %} This is how to display product data
+  {% endcomment %} 
+  {% for product_entry in product_entries %}
+  <tr>
+    <td>{{product_entry.name}}</td>
+    <td>{{product_entry.description}}</td>
+    <td>{{product_entry.price}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<br />
+
+<a href="{% url 'main:create_product_entry' %}">
+  <button>Add New Product Entry</button>
+</a>
+
+{% endblock content %}
