@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ruhl9_e7oct-5a21+b9o-6s^jbu-4d!_+04r1kg(r507lu@3od
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "adiena-nimeesha-ECommerceApplication.pbp.cs.ui.ac.id"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "adiena-nimeesha-ecommerceapplication.pbp.cs.ui.ac.id"]
 
 
 # Application definition
@@ -123,4 +123,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://adiena-nimeesha-ECommerceApplication.pbp.cs.ui.ac.id", "https://adiena-nimeesha-ECommerceApplication.pbp.cs.ui.ac.id"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://adiena-nimeesha-ecommerceapplication.pbp.cs.ui.ac.id", "https://adiena-nimeesha-ecommerceapplication.pbp.cs.ui.ac.id"]
