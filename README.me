@@ -1,6 +1,6 @@
-ASSIGNMENT 2
+# ASSIGNMENT 2
 
-Explain how you implemented the checklist above step-by-step (not just following the tutorial).
+# Explain how you implemented the checklist above step-by-step (not just following the tutorial).
 1. Create a folder/directory, naming it e-commerce-application
 2. Using a terminal or command prompt (I used vscode), open the folder in vscode and open the terminal. 
 3. Run the command: python -m venv env in the vscode terminal to create a virtual environment 
@@ -71,48 +71,43 @@ urlpatterns = [
 32. In a web browser, open http://localhost:8000/. If the previous steps are successful, the name of the store, my name, and my class should be visible. 
 
 
-Create a diagram that contains the request client to a Django-based web application and the response it gives, 
+# Create a diagram that contains the request client to a Django-based web application and the response it gives, 
 and explain the relationship between urls.py, views.py, models.py, and the html file.
 
 
 
-Explain the use of git in software development!
+# Explain the use of git in software development!
 Git is used in software development since it’s a tool that is used for source code management. It is able to track the changes made in the source code, 
 which provides ease for multiple developers to collaborate and work together. Other than that, Git is free, making it accessible to everyone. 
 
 
-In your opinion, out of all the frameworks available, why is Django used as the 
-starting point for learning software development?
+# In your opinion, out of all the frameworks available, why is Django used as the starting point for learning software development?
 In my opinion, Django is the starting point for learning software development because it implements MVT. This allows developers 
 to control and manage the components needed for a web application and developers can organize their code. Other than that, 
 developers are capable of creating projects or web applications that are small or large-scale, so developers can start small using Django. 
 
 
-Why is the Django model called an ORM?
+# Why is the Django model called an ORM?
 The Django model is called an ORM because it allows users to interact with databases. Other than that, it allows users to do 
 the following actions: delete, modify, add, and query objects.
 
 ---------------------------------------------------------------------------------
 
-ASSIGNMENT 3
+# ASSIGNMENT 3
 Explain why we need data delivery in implementing a platform
 Data delivery is needed in implementing a platform because it allows communication between components. What is meant by 
 components includes front-end, databases, and back-end. Data delivery is utilized such that communication is carried out 
 thoroughly between these components. 
 
-
-In your opinion, which is better, XML or JSON? Why is JSON more popular than XML?
+# In your opinion, which is better, XML or JSON? Why is JSON more popular than XML?
 In my opinion, JSON is better than XML. JSON is more popular than XML because it is simpler to use. Not only that, it 
 is much more flexible than XML and it is faster to read and write. 
 
-
-Explain the functional usage of is_valid() method in Django forms. Also explain why we need the method in forms.
+# Explain the functional usage of is_valid() method in Django forms. Also explain why we need the method in forms.
 is_valid() is utilized for validation. This is needed because it ensures the data that is inputted by the user is valid 
 and is according to the forms field. 
 
-
-Why do we need csrf_token when creating a form in Django? What could happen if we did not use csrf_token on a Django form? 
-How could this be leveraged by an attacker?
+# Why do we need csrf_token when creating a form in Django? What could happen if we did not use csrf_token on a Django form? How could this be leveraged by an attacker?
 Csfr_token is needed when creating a form in Django because it provides security and allows users to stay away from csfr 
 attacks. If csfr_token is not used, users could be prone or exposed to csfr attacks, which is dangerous since these attacks 
 allow attackers to gain full access to the account. Attackers ould leverage this by triggering unintended actions. By this, 
@@ -120,7 +115,7 @@ attackers could manipulate users to submit their form and attackers could change
 user’s account. 
 
 
-Explain how you implemented the checklist above step-by-step (not just following the tutorial).
+# Explain how you implemented the checklist above step-by-step (not just following the tutorial).
 To create a form input,a file called forms.py is created in the main directory. The content of this file is used such that 
 it can receive data when new products are inputted. In the file, import Product and create a model, where model = Product. 
 This ensures any data from the form is saved as an object of Product. Then create “fields” and include “name”, “description”, 
@@ -146,3 +141,7 @@ serializes data result as JSON or XML. It will also consist of the content type 
 “application/JSON” for JSON. Go to the urls.py file and add show_xml_by_id and  show_json_by_id at the import so that it can be accessed. 
 Then add the URL path to the variable “urlpatterns” (still within the urls.py file) so the functions created can be accessed. To test 
 if it’s working, run the Django project and access either http://localhost:8000/xml/%5Bid%5D/ or http://localhost:8000/json/%5Bid%5D/ 
+
+# Postman 
+Please access this google docs for the screenshots
+https://docs.google.com/document/d/18KLgCiYmS2iF77iCh9bDfUnUDitMM3sCQ1r_47rlUn4/edit?usp=sharing 
