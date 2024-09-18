@@ -1,3 +1,5 @@
+ASSIGNMENT 2
+
 Explain how you implemented the checklist above step-by-step (not just following the tutorial).
 1. Create a folder/directory, naming it e-commerce-application
 2. Using a terminal or command prompt (I used vscode), open the folder in vscode and open the terminal. 
@@ -90,3 +92,57 @@ Why is the Django model called an ORM?
 The Django model is called an ORM because it allows users to interact with databases. Other than that, it allows users to do 
 the following actions: delete, modify, add, and query objects.
 
+---------------------------------------------------------------------------------
+
+ASSIGNMENT 3
+Explain why we need data delivery in implementing a platform
+Data delivery is needed in implementing a platform because it allows communication between components. What is meant by 
+components includes front-end, databases, and back-end. Data delivery is utilized such that communication is carried out 
+thoroughly between these components. 
+
+
+In your opinion, which is better, XML or JSON? Why is JSON more popular than XML?
+In my opinion, JSON is better than XML. JSON is more popular than XML because it is simpler to use. Not only that, it 
+is much more flexible than XML and it is faster to read and write. 
+
+
+Explain the functional usage of is_valid() method in Django forms. Also explain why we need the method in forms.
+is_valid() is utilized for validation. This is needed because it ensures the data that is inputted by the user is valid 
+and is according to the forms field. 
+
+
+Why do we need csrf_token when creating a form in Django? What could happen if we did not use csrf_token on a Django form? 
+How could this be leveraged by an attacker?
+Csfr_token is needed when creating a form in Django because it provides security and allows users to stay away from csfr 
+attacks. If csfr_token is not used, users could be prone or exposed to csfr attacks, which is dangerous since these attacks 
+allow attackers to gain full access to the account. Attackers ould leverage this by triggering unintended actions. By this, 
+attackers could manipulate users to submit their form and attackers could change the password, email address, or omit the 
+user’s account. 
+
+
+Explain how you implemented the checklist above step-by-step (not just following the tutorial).
+To create a form input,a file called forms.py is created in the main directory. The content of this file is used such that 
+it can receive data when new products are inputted. In the file, import Product and create a model, where model = Product. 
+This ensures any data from the form is saved as an object of Product. Then create “fields” and include “name”, “description”, 
+and “price”. This notifies the fields of the Product model that will be used for the form. 
+
+
+Adding four views to view the added objects (in XML, JSON, XML by ID, and JSON by ID) formats is done in the views.py file. 
+Before starting, import HttpResponse and Serializer from django.http and django.core respectively. Then, define a new function 
+called “show_xml” that takes a request parameter. Inside the function, make a variable to store the result of the quest that 
+retrieves all records from the Product model. Under that line of code, add a return function as an HttpResponse that contains 
+the serialized data result as XML and the content_type=”application/xml”. This step is needed because returning the serialized 
+data in XML format within an HttpsResponse allows the data to be structured properly for the user. Then, open the urls.py file 
+located in the main directory and add show_xml to the import list at the top of the file. Afterwards, add a URL path to the 
+urlpatterns variable (still inside urls.py file) such that the function from earlier can be accessed. Once done, run the Django 
+project and access this link http://localhost:8000/xml/. Repeat these steps to return data in JSON format. The only difference 
+is the variable show_json when creating a function and accessing this link http://localhost:8000/json/ to see if it works. 
+
+
+Returning data based on an ID in XML and JSON format is done in the views.py file as well. In the file, make two functions called 
+show_xml_by_id and show_json_by_id. Inside the function, create a variable called data. This variable will store the query of data 
+with the specific ID that exists in Product. Still inside the function, add a return function as an HttpResponse that contains the 
+serializes data result as JSON or XML. It will also consist of the content type with the value “application/xml” for XML and 
+“application/JSON” for JSON. Go to the urls.py file and add show_xml_by_id and  show_json_by_id at the import so that it can be accessed. 
+Then add the URL path to the variable “urlpatterns” (still within the urls.py file) so the functions created can be accessed. To test 
+if it’s working, run the Django project and access either http://localhost:8000/xml/%5Bid%5D/ or http://localhost:8000/json/%5Bid%5D/ 
