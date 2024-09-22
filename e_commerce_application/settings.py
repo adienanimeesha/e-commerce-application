@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ruhl9_e7oct-5a21+b9o-6s^jbu-4d!_+04r1kg(r507lu@3od'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+PRODUCTION = os.getenv("PRODUCTION", False)
+DEBUG = not PRODUCTION 
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "adiena-nimeesha-ecommerceapplication.pbp.cs.ui.ac.id"]
 
