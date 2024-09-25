@@ -1,6 +1,51 @@
+# ASSIGNMENT 4
+
+## What is the difference between HttpResponseRedirect() and redirect()?
+HttpResponseRedirect() returns an HTTP 302 redirect response. Its first argument can only be a url. In contrast, redirect() will return a HttpResponseRedirect that can accept the following: a model, view, or url. Unlike HttpResponseRedirect(), redirect() is much more flexible and it easier to use. 
+
+
+# Explain how the MoodEntry model is linked with User!
+The MoodEntry (however, in my code it’s Product) is linked with User through a foreign key. This is evident in the file models.py, under the class Product:
+user = models.ForeignKey(User, on_delete=models.CASCADE)
+Other than that, “get” is utilized to obtain the user’s data. 
+
+## What is the difference between authentication and authorization, and what happens when a user logs in? Explain how Django implements these two concepts.
+Authentication is the process of verifying a user’s identity. This is done by inputting the user’s username, password, or other biometric information (e.g. fingerprint, face ID, etc) when accessing a system. Authorization refers to deciding whether a certain user is allowed to have access to data. Authentication is typically done before authorization. 
+When users log in, they are asked to input their username and password, which is an authentication process. Once the system approves, the user will be redirected to their respective pages. By this, it means that user 1 will not be able to see the data user 2 inputted since user 1 does not have access (i.e. user 2’s biometric information) and does not have authorization. 
+
+
+## How does Django remember logged-in users? Explain other uses of cookies and whether all cookies are safe to use.
+Django remembers logged-in users by sorting the user’s data in the database. Cookies are utilized to store information. In Django, cookies are used to store information that are not very sensitive. This includes logged-in time, user’s preference, or any information that is related to the user’s session. Cookies store information, therefore it is safe. However, we must be wary of who is handling and having access to the cookies since the information stored in cookies can be used for malicious intent. 
+
+
+## Explain how did you implement the checklist step-by-step (apart from following the tutorial).
+### Implementing register, login, and logout functions
+The register page is implemented in the file views.py. This is done by implementing a function and using forms, that are meant as the register. This function allows users to create accounts when the data is submitted. Afterward, create an html that is meant for registering. Forms.as_table is utilized in this code so that the form can be turned a premade table. To ensure the register page can be accessed, we must import register in the urls.py file and add the path to urlpatterns. 
+
+The login function is implemented in the file views.py as well. However, we must import the following so that the login will function accordingly: Authenticate, AuhenticationForm, and login. These are built-in Django functions that is meant for user authentication. Still in views.py, we implement a login function, that enables users to authenticate their identity when entering the necessary information (i.e. username and password). Inside this function, we implement the following code: login(request, user). This code is crucial as it checks the validity of the user (if the user exists). If valid, then it will make a session for the logged-in user. Afterward, create an html called login and implement the code. This file allows users to log in or create an account if they don’t have or wish to create another. To ensure the login page can be accessed, the function login_user must be imported into the file urls.py. Then, add the path to urlspattern so that the login page can be accessed and utilized. 
+Similar to creating the login function, we must import logout in the views.py file. Still in views.py, create a function called logout_user, taking in the parameter request, and implementing the code. Inside this function, the code logout(request) allows the session of the currently logged-in user to be omitted. Then the code returning redirect(‘main: login’) will bring the user back to the login page. To implement the logout button, open the main.html file and insert it between the ‘main:logout’ url. Open urls.py to import logout_user and add the path in urlpatterns so that the logout function can be accessed. 
+
+### Connect the models Product and User
+Before proceeding to connect the models Product and User, we must ensure that the register, login, logout, functions, and cookies are implemented. If not, errors and issues may occur. The models Product and User must be connected so that only the logged in user 
+
+### Make two user accounts with three dummy data 
+This is done after implementing the register, login, and logout functions. After implementing those three functions, the buttons for register, login, and logout should appear. To make an account, users should click on the register button, and they will be redirected to a page where users should make a username and password. Then users can press the register button once again, and they will be redirected to the login page. Users can now enter their username and password and then they will enter the main page, where they can see the product entries. If users have not created a product entry, they can click on the button “add product entry” and fill in with whatever data they wish. 
+To ensure each data can be accessed by each account locally, we implement the following code:
+product_entries = Product.objects.filter(user=request.user)
+This way, users can only have access to their own data or view the products they have entered. Users won’t be able to see other users' data. 
+
+### Display logged in user details (i.e. username) and apply cookies (i.e. last login)
+Before implementing the code for users  last logged in details, we need to open views.py and import the following (in the views.py file): HttpResponseRedirect, reverse, datetime. httpResponse allows the user to be redirected to another URL (which is helpful for logingin and logingout and updating the user’s cookies). Reverse is used to dynamically find the URL that’s related to a specific view. Datetime is needed to record the current time and store it in the cookie. 
+
+Open the views.py file and edit the login_user function. Change the code to set a cookie called “last_login” so that the user’s last logged in is tracked. In the show_main function, we add the following code: 'last_login': request.COOKIES['last_login'] to the context variable. This code retrieves the last_login cookie data and includes it in the response, allowing it to be shown in the web page. Then we add the last login to the main html so the data of the user’s last login can be displayed. Afterwards, run the server and refresh the website. Cookies are needed to display the last logged in since (in Django), cookies are utilized to store non-sensitive information, such as last logged in time . 
+
+
+---------------------------------------------------------------------------------
+
+
 # ASSIGNMENT 2
 
-# Explain how you implemented the checklist above step-by-step (not just following the tutorial).
+## Explain how you implemented the checklist above step-by-step (not just following the tutorial).
 1. Create a folder/directory, naming it e-commerce-application
 2. Using a terminal or command prompt (I used vscode), open the folder in vscode and open the terminal. 
 3. Run the command: python -m venv env in the vscode terminal to create a virtual environment 
@@ -71,23 +116,23 @@ urlpatterns = [
 32. In a web browser, open http://localhost:8000/. If the previous steps are successful, the name of the store, my name, and my class should be visible. 
 
 
-# Create a diagram that contains the request client to a Django-based web application and the response it gives, 
+## Create a diagram that contains the request client to a Django-based web application and the response it gives, 
 and explain the relationship between urls.py, views.py, models.py, and the html file.
 
 
 
-# Explain the use of git in software development!
+## Explain the use of git in software development!
 Git is used in software development since it’s a tool that is used for source code management. It is able to track the changes made in the source code, 
 which provides ease for multiple developers to collaborate and work together. Other than that, Git is free, making it accessible to everyone. 
 
 
-# In your opinion, out of all the frameworks available, why is Django used as the starting point for learning software development?
+## In your opinion, out of all the frameworks available, why is Django used as the starting point for learning software development?
 In my opinion, Django is the starting point for learning software development because it implements MVT. This allows developers 
 to control and manage the components needed for a web application and developers can organize their code. Other than that, 
 developers are capable of creating projects or web applications that are small or large-scale, so developers can start small using Django. 
 
 
-# Why is the Django model called an ORM?
+## Why is the Django model called an ORM?
 The Django model is called an ORM because it allows users to interact with databases. Other than that, it allows users to do 
 the following actions: delete, modify, add, and query objects.
 
@@ -99,15 +144,15 @@ Data delivery is needed in implementing a platform because it allows communicati
 components includes front-end, databases, and back-end. Data delivery is utilized such that communication is carried out 
 thoroughly between these components. 
 
-# In your opinion, which is better, XML or JSON? Why is JSON more popular than XML?
+## In your opinion, which is better, XML or JSON? Why is JSON more popular than XML?
 In my opinion, JSON is better than XML. JSON is more popular than XML because it is simpler to use. Not only that, it 
 is much more flexible than XML and it is faster to read and write. 
 
-# Explain the functional usage of is_valid() method in Django forms. Also explain why we need the method in forms.
+## Explain the functional usage of is_valid() method in Django forms. Also explain why we need the method in forms.
 is_valid() is utilized for validation. This is needed because it ensures the data that is inputted by the user is valid 
 and is according to the forms field. 
 
-# Why do we need csrf_token when creating a form in Django? What could happen if we did not use csrf_token on a Django form? How could this be leveraged by an attacker?
+## Why do we need csrf_token when creating a form in Django? What could happen if we did not use csrf_token on a Django form? How could this be leveraged by an attacker?
 Csfr_token is needed when creating a form in Django because it provides security and allows users to stay away from csfr 
 attacks. If csfr_token is not used, users could be prone or exposed to csfr attacks, which is dangerous since these attacks 
 allow attackers to gain full access to the account. Attackers ould leverage this by triggering unintended actions. By this, 
@@ -115,7 +160,7 @@ attackers could manipulate users to submit their form and attackers could change
 user’s account. 
 
 
-# Explain how you implemented the checklist above step-by-step (not just following the tutorial).
+## Explain how you implemented the checklist above step-by-step (not just following the tutorial).
 To create a form input,a file called forms.py is created in the main directory. The content of this file is used such that 
 it can receive data when new products are inputted. In the file, import Product and create a model, where model = Product. 
 This ensures any data from the form is saved as an object of Product. Then create “fields” and include “name”, “description”, 
@@ -142,6 +187,6 @@ serializes data result as JSON or XML. It will also consist of the content type 
 Then add the URL path to the variable “urlpatterns” (still within the urls.py file) so the functions created can be accessed. To test 
 if it’s working, run the Django project and access either http://localhost:8000/xml/%5Bid%5D/ or http://localhost:8000/json/%5Bid%5D/ 
 
-# Postman 
+## Postman 
 Please access this google docs for the screenshots
 https://docs.google.com/document/d/18KLgCiYmS2iF77iCh9bDfUnUDitMM3sCQ1r_47rlUn4/edit?usp=sharing 
