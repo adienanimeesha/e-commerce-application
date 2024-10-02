@@ -1,6 +1,6 @@
 # ASSIGNMENT 5 
 ## If there are multiple CSS selectors for an HTML element, explain the priority order of these CSS selectors!
-### The priority order follows (from highest to lowest): 
+he priority order follows (from highest to lowest): 
 1. Inline styles
 The CSS is applied directly to the HTML element using the style attribute. An example would be <h1 style=”color: blue;”> 
 2. IDs
@@ -8,13 +8,13 @@ The CSS is applied directly to the HTML element using the style attribute. An ex
 4. Elements and pseudo-elements 
 
 ## Why does responsive design become an important concept in web application development? Give examples of applications that have and have not implemented responsive design!
-### Responsive design is an important concept in web application development because it allows the user to have a better experience when browsing the application. Other than that, users do not need to adjust (e.g. resize, zoom, scroll) just because they are accessing the website on other devices, such as tablets, smartphones, laptops, and desktops. 
+Responsive design is an important concept in web application development because it allows the user to have a better experience when browsing the application. Other than that, users do not need to adjust (e.g. resize, zoom, scroll) just because they are accessing the website on other devices, such as tablets, smartphones, laptops, and desktops. 
 
-### An example of an application that has implemented a responsive design is YouTube. The app will automatically adjust its layout based on the device the user is using. Not only that, but YouTube uses the hamburger menu for navigation on mobile phones, whereas the full menu and navigation are utilized on larger screens. An example of an application that has not been implemented would be older websites. An issue with these older websites is that it is not as flexible/fluid when opening them with devices. A scenario that might occur is how a picture may be in the wrong ratio when opening the web with a phone than opening it with a laptop. 
+An example of an application that has implemented a responsive design is YouTube. The app will automatically adjust its layout based on the device the user is using. Not only that, but YouTube uses the hamburger menu for navigation on mobile phones, whereas the full menu and navigation are utilized on larger screens. An example of an application that has not been implemented would be older websites. An issue with these older websites is that it is not as flexible/fluid when opening them with devices. A scenario that might occur is how a picture may be in the wrong ratio when opening the web with a phone than opening it with a laptop. 
 
 
 ## Explain the differences between margin, border, and padding, and how to implement these three things!
-### These three terms are common in CSS and often called the “box model”. 
+These three terms are common in CSS and often called the “box model”. 
 ## A margin is used to determine the space surrounding an element. It is the space around an element. This is used to move an element up, down, left, and right on a page. A margin is implemented by inserting the following code:
 ```css
 div {
@@ -27,10 +27,11 @@ div {
   margin-bottom: 20px;
   margin-left: 25px;
 }
+```
 
-### The above code shows that a margin could be set on all sides, or on four sides. If users wish to center the margin, they could always implement it as margin: auto.
+The above code shows that a margin could be set on all sides, or on four sides. If users wish to center the margin, they could always implement it as margin: auto.
 
-### A padding is the space between the element and the content inside. This is utilized to determine how content looks within a container. Paddings are used to control the internal spacing within an element. The implementation of a padding is done below:
+A padding is the space between the element and the content inside. This is utilized to determine how content looks within a container. Paddings are used to control the internal spacing within an element. The implementation of a padding is done below:
 ```css
 h4 {
       background-color: lime;
@@ -41,21 +42,22 @@ h3 {
      background-color: cyan;
      padding: 110px 50px 50px 110px;
 }
-### This is another way to add the values for padding. Instead of creating four padding variables for the top, bottom, left, and right, the measurements can be written in one line, based on the position of the padding. The first position is for the top, the second for the right, the third for the bottom, and the fourth for the left. 
+```
 
-### A border is a line that surrounds the padding and content of an element. It lies between the margin and padding. The code below is a way to implement a border:
+This is another way to add the values for padding. Instead of creating four padding variables for the top, bottom, left, and right, the measurements can be written in one line, based on the position of the padding. The first position is for the top, the second for the right, the third for the bottom, and the fourth for the left. 
+
+A border is a line that surrounds the padding and content of an element. It lies between the margin and padding. The code below is a way to implement a border:
 ```css
-/* Border on all sides */
 div {
   border: 2px solid black;
 }
 
-/* Border on specific sides */
 div {
   border-top: 5px dashed blue;
   border-bottom: 3px solid green;
 }
-### The solid and dashed lines represent the lines, whether they are solid or dashed lines. 
+```
+The solid and dashed lines represent the lines, whether they are solid or dashed lines. 
 
 
 ## Explain the concepts of flexbox and grid layout along with their uses!
@@ -72,16 +74,19 @@ In CSS, a flexbox is a one-dimensional layout. Since it’s one-dimensional, it 
 
     The process of creating a register page is similar to creating a login page. Start by making an html file called “register.html” and fill the file with the code. The code consists of elements, such as creating a title to display the “Register” text. Content blocks are utilized, where the content inside those blocks will replace the placeholder content block in the base.html template. Setting up Form (for POST method) is used for submitting data, and a csrf token is added to ensure security. Fields such as <button> are also utilized, a register button. Not only that but a code that handles messages (i.e. success message for creating an account, error messages, etc) is implemented. Since this is a register page, it must be linked to the login page using the login url. Lastly, creative attributes, such as header, fonts, etc. are implemented as well to give it a visual appeal for users.The process is the same for creating a product page. However, we link it with the data the users input in the fields so that it matches. 
 
-    ### Customizing the product list 
+  ### Customizing the Product List 
     To make the product list more appealing, a product entry will appear every time a user add a new product. The code consists of loading static files and extending the base template. Then, the navigation bar is included so that users can navigate across the application easily. Other than that, the code consists of a main container, where it  defines a container with full height (min-h-screen) and a background color of gray-100. Form must be included using the code {% for field in form %}, and this dynamically generates the form fields. Each field is displayed with a label {{ field.label }} and {{ field }} allows the form to be responsive dynamic. Lastly, add visual appealing attributes, such as changing the color of the card, the font, etc. 
 
+  ### Empty Product List
     If there are no products on display, a picture and a text will appear. This is done by creating an “image” folder inside the “static” folder. The path of the image will then be pasted inside the create_product_entry.html file. Conditional statements are also utilized to ensure the image will appear when there are no product entries. 
 
+  ### Product Card
     If users input product entries, product cards will appear. The card displays the product name, description, and price. This is done by creating a new html file called “card_product.html”. Most of the code utilizes <div> containers to create the structure of the card. The main body of the card utilizes a combination of Tailwind classes (show-md, rounded-lg, and border-2). For product information, the product name, description, and time details are displayed using a simple layout inside <div>containers. The background colors are also displayed in the containers. The card has two buttons, the edit and delete button. These buttons are essential in the product cards since it enables users to edit and delete their product entries. 
 
+  ### Edit and Delete Button
     Each product card has two buttons, one to edit the product entry and the other to delete the product entry. This is implemented in the same code as “card_product”. The edit button is easily identified by finding the line of code that has the <a> tag. The tag contains the url “edit_product” and it generate the url to edit a product entry. It also has the class=”bg-yellow-500 hover:bg-yellow-600…” which sets the background color of the icon to yellow. The delete button is implemented similarly. The difference is how the <a> tag contains the url “delete_product”, which allows the user to delete a product entry. t also has the class=”bg-red-500 hover:bg-red-600…” which sets the background color of the icon to red. Both buttons has an <svg> tag, and this defines the graphic for both buttons (pencil for edit, trash bin for delete). 
 
-    ### Navbar 
+  ### Navbar 
     The web application isn’t complete without a navbar, or navigation bar. However, it’s important that the navbar is responsive, or they can resize itself based on the device (laptop, desktop, mobile, tablet). Because of this, the codes that will adapt to mobile and desktop screens must be implemented. 
 This is the code to ensure the navbar works in desktop:
 ```html
@@ -95,6 +100,7 @@ This is the code to ensure the navbar works in desktop:
     </a>
   {% endif %}
 </div>
+```
 
 The code” hidden md:flex” hides the menu on smaller screens, however, shows it as a flex container on medium and larger screens. It also displays the logged-in username, which is seen on the code {{ user.username }} and a logout button right next to it. 
 
@@ -112,6 +118,7 @@ Below is the code for the navbar in mobile:
     {% endif %}
   </div>
 </div>
+```
 
 The code “mobile-menu hidden md:hidden” is initially hidden and it will only be visible on smaller screens. Similar to the navbar in desktop, the code displays the username of the current logged in user and logout button. Since the mobile button is smaller, three horizontal lines will appear, this is also known as the hamburger icon. 
 
