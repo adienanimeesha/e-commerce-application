@@ -64,30 +64,30 @@ The solid and dashed lines represent the lines, whether they are solid or dashed
 In CSS, a flexbox is a one-dimensional layout. Since it’s one-dimensional, it can only work on columns or rows at a time. This tool is used to align spaces among items in a grid container. Utilizing Flexbox enables users to easily design and create responsive web pages without using many position and float properties in the code. Unlike Flexbox, Grid is meant for two-dimensional layouts, which means it can work on rows and columns. Because of this, Grid Layout is good for creating layouts that are more complex and organized. 
 
 ## Explain how you implemented the checklist above step-by-step (not just following the tutorial)!
-	### Implementing delete and edit product 
+### Implementing delete and edit product 
 	To implement a delete feature, create a function called “delete_product” in views.py. The function takes the parameters request and id, and it should be able to retrieve data from the database and delete the product by matching the primary key with the id. Then import the function in urls.py and paste the path in urlspattern so that the function can be accessed and users can delete products. To enable users to edit their product entries, create a function called “edit_product” in views.py. The code is different than delete_product since this code requires a POST request, to see if the form is submitted. Then open the urls.py file and import the function at the very top. Paste the path to urlspattern so the function can be accessed and used. 
 
-	### Customize the login, register, and add products page 
-    Before customizing the pages, a file called global.css is created. This file contains the global styling rules for the web application, these rules focus more on the visual appeal and layout of the html elements. Not only that but to ensure all the buttons across the pages are uniform. 
+### Customize the login, register, and add products page 
+Before customizing the pages, a file called global.css is created. This file contains the global styling rules for the web application, these rules focus more on the visual appeal and layout of the html elements. Not only that but to ensure all the buttons across the pages are uniform. 
 
-    To create a login page, make an HTML file called “login.html” for the code to display the login page.  In the code, block meta is utilized so that content can be inserted. To display the buttons, and user input, the fields <buttons> and <inputs> are implemented. This code also consists of visual attributes to make the login page appealing and a URL to redirect the user to the main page.  
+To create a login page, make an HTML file called “login.html” for the code to display the login page.  In the code, block meta is utilized so that content can be inserted. To display the buttons, and user input, the fields <buttons> and <inputs> are implemented. This code also consists of visual attributes to make the login page appealing and a URL to redirect the user to the main page.  
 
-    The process of creating a register page is similar to creating a login page. Start by making an html file called “register.html” and fill the file with the code. The code consists of elements, such as creating a title to display the “Register” text. Content blocks are utilized, where the content inside those blocks will replace the placeholder content block in the base.html template. Setting up Form (for POST method) is used for submitting data, and a csrf token is added to ensure security. Fields such as <button> are also utilized, a register button. Not only that but a code that handles messages (i.e. success message for creating an account, error messages, etc) is implemented. Since this is a register page, it must be linked to the login page using the login url. Lastly, creative attributes, such as header, fonts, etc. are implemented as well to give it a visual appeal for users.The process is the same for creating a product page. However, we link it with the data the users input in the fields so that it matches. 
+The process of creating a register page is similar to creating a login page. Start by making an html file called “register.html” and fill the file with the code. The code consists of elements, such as creating a title to display the “Register” text. Content blocks are utilized, where the content inside those blocks will replace the placeholder content block in the base.html template. Setting up Form (for POST method) is used for submitting data, and a csrf token is added to ensure security. Fields such as <button> are also utilized, a register button. Not only that but a code that handles messages (i.e. success message for creating an account, error messages, etc) is implemented. Since this is a register page, it must be linked to the login page using the login url. Lastly, creative attributes, such as header, fonts, etc. are implemented as well to give it a visual appeal for users.The process is the same for creating a product page. However, we link it with the data the users input in the fields so that it matches. 
 
-  ### Customizing the Product List 
-    To make the product list more appealing, a product entry will appear every time a user add a new product. The code consists of loading static files and extending the base template. Then, the navigation bar is included so that users can navigate across the application easily. Other than that, the code consists of a main container, where it  defines a container with full height (min-h-screen) and a background color of gray-100. Form must be included using the code {% for field in form %}, and this dynamically generates the form fields. Each field is displayed with a label {{ field.label }} and {{ field }} allows the form to be responsive dynamic. Lastly, add visual appealing attributes, such as changing the color of the card, the font, etc. 
+### Customizing the Product List 
+To make the product list more appealing, a product entry will appear every time a user add a new product. The code consists of loading static files and extending the base template. Then, the navigation bar is included so that users can navigate across the application easily. Other than that, the code consists of a main container, where it  defines a container with full height (min-h-screen) and a background color of gray-100. Form must be included using the code {% for field in form %}, and this dynamically generates the form fields. Each field is displayed with a label {{ field.label }} and {{ field }} allows the form to be responsive dynamic. Lastly, add visual appealing attributes, such as changing the color of the card, the font, etc. 
 
-  ### Empty Product List
-    If there are no products on display, a picture and a text will appear. This is done by creating an “image” folder inside the “static” folder. The path of the image will then be pasted inside the create_product_entry.html file. Conditional statements are also utilized to ensure the image will appear when there are no product entries. 
+### Empty Product List
+If there are no products on display, a picture and a text will appear. This is done by creating an “image” folder inside the “static” folder. The path of the image will then be pasted inside the create_product_entry.html file. Conditional statements are also utilized to ensure the image will appear when there are no product entries. 
 
-  ### Product Card
-    If users input product entries, product cards will appear. The card displays the product name, description, and price. This is done by creating a new html file called “card_product.html”. Most of the code utilizes <div> containers to create the structure of the card. The main body of the card utilizes a combination of Tailwind classes (show-md, rounded-lg, and border-2). For product information, the product name, description, and time details are displayed using a simple layout inside <div>containers. The background colors are also displayed in the containers. The card has two buttons, the edit and delete button. These buttons are essential in the product cards since it enables users to edit and delete their product entries. 
+### Product Card
+If users input product entries, product cards will appear. The card displays the product name, description, and price. This is done by creating a new html file called “card_product.html”. Most of the code utilizes <div> containers to create the structure of the card. The main body of the card utilizes a combination of Tailwind classes (show-md, rounded-lg, and border-2). For product information, the product name, description, and time details are displayed using a simple layout inside <div>containers. The background colors are also displayed in the containers. The card has two buttons, the edit and delete button. These buttons are essential in the product cards since it enables users to edit and delete their product entries. 
 
-  ### Edit and Delete Button
-    Each product card has two buttons, one to edit the product entry and the other to delete the product entry. This is implemented in the same code as “card_product”. The edit button is easily identified by finding the line of code that has the <a> tag. The tag contains the url “edit_product” and it generate the url to edit a product entry. It also has the class=”bg-yellow-500 hover:bg-yellow-600…” which sets the background color of the icon to yellow. The delete button is implemented similarly. The difference is how the <a> tag contains the url “delete_product”, which allows the user to delete a product entry. t also has the class=”bg-red-500 hover:bg-red-600…” which sets the background color of the icon to red. Both buttons has an <svg> tag, and this defines the graphic for both buttons (pencil for edit, trash bin for delete). 
+### Edit and Delete Button
+Each product card has two buttons, one to edit the product entry and the other to delete the product entry. This is implemented in the same code as “card_product”. The edit button is easily identified by finding the line of code that has the <a> tag. The tag contains the url “edit_product” and it generate the url to edit a product entry. It also has the class=”bg-yellow-500 hover:bg-yellow-600…” which sets the background color of the icon to yellow. The delete button is implemented similarly. The difference is how the <a> tag contains the url “delete_product”, which allows the user to delete a product entry. t also has the class=”bg-red-500 hover:bg-red-600…” which sets the background color of the icon to red. Both buttons has an <svg> tag, and this defines the graphic for both buttons (pencil for edit, trash bin for delete). 
 
-  ### Navbar 
-    The web application isn’t complete without a navbar, or navigation bar. However, it’s important that the navbar is responsive, or they can resize itself based on the device (laptop, desktop, mobile, tablet). Because of this, the codes that will adapt to mobile and desktop screens must be implemented. 
+### Navbar 
+The web application isn’t complete without a navbar, or navigation bar. However, it’s important that the navbar is responsive, or they can resize itself based on the device (laptop, desktop, mobile, tablet). Because of this, the codes that will adapt to mobile and desktop screens must be implemented. 
 This is the code to ensure the navbar works in desktop:
 ```html
 <div class="hidden md:flex space-x-4 items-center">
@@ -199,22 +199,26 @@ Open the views.py file and edit the login_user function. Change the code to set 
 22. Inside the e-commerce-application directory, open settings.py and add “main” in INSTALLED_APPS. This allows the main application to be registered in the e-commerce application 
 23. Within main, create a folder/directory called “template”. This serves as the folder where the main.html is located. 
 24. In the template directory, create a new file, main.html, and fill it in with the following details:
+```html
 <h1>{{ application_name }}</h1>
 
 <h5>Name: </h5>
 <p>{{ name }}<p>
 <h5>Class: </h5>
 <p>{{ class }}<p>
+  ```
 24. Inside the main application directory, the file models.py is modified. This is to create a model in the application “main”. Then add the following code to the file:
+```python
 from django.db import models
 class Product(models.Model):
     name = models.CharField(max_length=255)
     price = models.IntegerField()
     description = models.TextField()
-
+```
 
 25. Run the following code: python manage.py makemigrations to create model migrations. And run this code: python manage.py migrate to apply migrations to the local database.
 26. Afterward, we will create a template that will display our name and class. Inside the file views.py, create a function called “show_main” and add the following code:
+```python
 from django.shortcuts import render
 
 def show_main(request):
@@ -225,9 +229,11 @@ def show_main(request):
     }
 
     return render(request, "main.html", context)
+```
 This code is capable of accepting a request parameter. 
 27. Next, we must set the URL routing up so that the main application is accessible via a web browser. This is done in the “main” directory and create a file called “urls.py”
 28. Add the following code in urls.py:
+```python
 from django.urls import path
 from main.views import show_main
 
@@ -236,6 +242,7 @@ app_name = 'main'
 urlpatterns = [
     path('', show_main, name='show_main'),
 ]
+```
 29. Then the project URL routing must be configured. This is done by opening the urls.py file and importing the “include” function from django.urls.  
 30. Integrate the following code:   path('', include('main.urls')), in the “urlpatterns” variable.
 31. Run the project with the following command: python manage.py runserver and wait.
