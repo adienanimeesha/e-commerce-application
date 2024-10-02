@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block meta %}
 <title>Login</title>
 {% endblock meta %}
 
 {% block content %}
-<div class="min-h-screen flex items-center justify-center w-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-md w-full space-y-8">
+<!-- Use the bg-login class defined in global.css to apply the background image -->
+<div class="min-h-screen flex items-center justify-center w-screen bg-login py-12 px-4 sm:px-6 lg:px-8">
+  <div class="bg-white bg-opacity-80 max-w-md w-full space-y-8 p-8 rounded-lg shadow-lg">
     <div>
-      <h2 class="mt-6 text-center text-black text-3xl font-extrabold text-gray-900">
+      <h2 class="mt-6 text-center text-black text-3xl font-serif text-gray-900">
         Login to your account
       </h2>
     </div>
@@ -27,7 +29,7 @@
       </div>
 
       <div>
-        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
           Sign in
         </button>
       </div>
@@ -56,7 +58,7 @@
     <div class="text-center mt-4">
       <p class="text-sm text-black">
         Don't have an account yet?
-        <a href="{% url 'main:register' %}" class="font-medium text-indigo-200 hover:text-indigo-300">
+        <a href="{% url 'main:register' %}" class="font-medium text-gray-400 hover:text-indigo-300">
           Register Now
         </a>
       </p>

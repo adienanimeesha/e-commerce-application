@@ -21,3 +21,17 @@
 .bg-indigo-700{
     background-color: rgb(51 65 85) !important; 
 }
+.bg-login {
+    background-image: url('/e_commerce_application/image/loginpage.jpg');
+    background-size: cover; /* To ensure the background covers the entire div */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.bg-login {
+    background-image: url("{% static 'images/your-image.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
