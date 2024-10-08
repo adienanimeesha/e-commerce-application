@@ -1,3 +1,44 @@
+# ASSIGNMENT 6
+
+## Explain the benefits of using JavaScript in developing web applications!
+The first benefit is the verasitility of JavaScript. This means 
+
+## Explain why we need to use await when we call fetch()! What would happen if we don't use await?
+await is needed when we call fetch() because it allows users to make asynchronous or initiate an HTTP requests to external resources (i.e. APIs). This process is also done in a readable and neat manner, which makes it easier for users. 
+
+If await is not used when fetch() is called, nothing will change, at the user's end.
+
+
+## Why do we need to use the csrf_exempt decorator on the view used for AJAX POST?
+Csfr_exempt on the view is used on the view for AJAX POST since it provides an extra step of security.In the code, csfr_exempt is imported in views.py. This signals views that the file does not need the csfr token to pass the csfr checks. This is done because AJAX POST comes from a different domain. 
+
+##  On this week's tutorial, the user input sanitization is done in the back-end as well. Why can't the sanitization be done just in the front-end?
+User sanitization can't be done just in the front end because it allows attackers to post data (that may be a threat), which will bypass the front end. If sanitization is done in the front end, harmful data can easily pass through due to the lack of security. 
+
+##  Explain how you implemented the checklist above step-by-step (not just following the tutorial)!
+### AJAX GET 
+To implement AJAX GET, csfr_exempt and require POST must be imported in the views.py file. Still in the same file, create a new function called "add_product_entry_ajax" which takes the parameter request. This function is used to retrieve data through POST request using the following fields:
+``` python 
+product = request.POST.get("product")
+    description = request.POST.get("description")
+    price = request.POST.get("price")
+```
+Afterwards, go to urls.py and import the function at the top of the code and copy the path to urlpatterns. This is done so that the function is accessible and can be used. 
+
+Going back to views.py, remove the two lines below. This is done "product_entries" does not need to be passed, since fetch() is now used.
+```python
+product_entries = Product.objects.filter(user=request.user)
+'product_entries': product_entries,
+```
+Then modify the show_json and show_xml functions so that it can filter through the product entries made by all the logged-in users, and ensures only the current users entries are retrived. Going to the main.html file, a certain block of code is omitted and replaced with the following line of code (in other words, a container). The code below acts as a placeholder for product entries that are dynamically fetched. 
+```html 
+<div id="mood_product_cards"></div>
+```
+Still in main.html, create a <script> block and create a function called getProductEntries, which uses the fetch
+
+### AJAX POST 
+---------------------------------------------------------------------------------
+
 # ASSIGNMENT 5 
 ## If there are multiple CSS selectors for an HTML element, explain the priority order of these CSS selectors!
 he priority order follows (from highest to lowest): 
@@ -65,7 +106,7 @@ In CSS, a flexbox is a one-dimensional layout. Since it’s one-dimensional, it 
 
 ## Explain how you implemented the checklist above step-by-step (not just following the tutorial)!
 ### Implementing delete and edit product 
-	To implement a delete feature, create a function called “delete_product” in views.py. The function takes the parameters request and id, and it should be able to retrieve data from the database and delete the product by matching the primary key with the id. Then import the function in urls.py and paste the path in urlspattern so that the function can be accessed and users can delete products. To enable users to edit their product entries, create a function called “edit_product” in views.py. The code is different than delete_product since this code requires a POST request, to see if the form is submitted. Then open the urls.py file and import the function at the very top. Paste the path to urlspattern so the function can be accessed and used. 
+To implement a delete feature, create a function called “delete_product” in views.py. The function takes the parameters request and id, and it should be able to retrieve data from the database and delete the product by matching the primary key with the id. Then import the function in urls.py and paste the path in urlspattern so that the function can be accessed and users can delete products. To enable users to edit their product entries, create a function called “edit_product” in views.py. The code is different than delete_product since this code requires a POST request, to see if the form is submitted. Then open the urls.py file and import the function at the very top. Paste the path to urlspattern so the function can be accessed and used. 
 
 ### Customize the login, register, and add products page 
 Before customizing the pages, a file called global.css is created. This file contains the global styling rules for the web application, these rules focus more on the visual appeal and layout of the html elements. Not only that but to ensure all the buttons across the pages are uniform. 
