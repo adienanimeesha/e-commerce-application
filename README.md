@@ -1,19 +1,22 @@
 # ASSIGNMENT 6
 
 ## Explain the benefits of using JavaScript in developing web applications!
-The first benefit is the verasitility of JavaScript. This means 
+The first benefit is how it has a good interface. JavaScript enables users to implement many features that allows their website to be visually appealing and engaging with users. Other than that, JavaScript is versatile. Both back and front end can be handled when integrated with node.js, etc.
 
 ## Explain why we need to use await when we call fetch()! What would happen if we don't use await?
-await is needed when we call fetch() because it allows users to make asynchronous or initiate an HTTP requests to external resources (i.e. APIs). This process is also done in a readable and neat manner, which makes it easier for users. 
+await is needed when we call fetch() because it allows users to make asynchronous or initiate an HTTP requests to external resources (i.e. APIs). 
+This process is also done in a readable and neat manner, which makes it easy for users. 
 
 If await is not used when fetch() is called, nothing will change, at the user's end.
 
 
 ## Why do we need to use the csrf_exempt decorator on the view used for AJAX POST?
-Csfr_exempt on the view is used on the view for AJAX POST since it provides an extra step of security.In the code, csfr_exempt is imported in views.py. This signals views that the file does not need the csfr token to pass the csfr checks. This is done because AJAX POST comes from a different domain. 
+Csfr_exempt on the view is used on the view for AJAX POST since it provides an extra step of security.In the code, csfr_exempt is imported in views.py. 
+This signals views that the file does not need the csfr token to pass the csfr checks. This is done because AJAX POST comes from a different domain. 
 
 ##  On this week's tutorial, the user input sanitization is done in the back-end as well. Why can't the sanitization be done just in the front-end?
-User sanitization can't be done just in the front end because it allows attackers to post data (that may be a threat), which will bypass the front end. If sanitization is done in the front end, harmful data can easily pass through due to the lack of security. 
+User sanitization can't be done just in the front end because it allows attackers to post data (that may be a threat), which will bypass the front end. 
+If sanitization is done in the front end, harmful data can easily pass through due to the lack of security. 
 
 ##  Explain how you implemented the checklist above step-by-step (not just following the tutorial)!
 ### AJAX GET 
@@ -34,9 +37,28 @@ Then modify the show_json and show_xml functions so that it can filter through t
 ```html 
 <div id="mood_product_cards"></div>
 ```
-Still in main.html, create a <script> block and create a function called getProductEntries, which uses the fetch
+
+Still in main.html, create a <script> block and create a function called getProductEntries, which uses the fetch() API to fetch the JSON data asynchronously. Then create a new function called "refreshProductEntries", which is for asynchronously refreshing the product datas.
 
 ### AJAX POST 
+Strip_tags must be implemented to clean up new data that can act as a potential threat. This is done by opening both views.py and forms.py 
+and importing strip_tags. Still in views.py, modify the add_product_entry_ajax function by adding "strip_tags" before the "product" and 
+"description" fields. The use of this is to store only plain text, which is done by removing HTML tags from user's input.Then going to 
+
+In the file forms.py, add the following codes under ProductForm:
+```python 
+def clean_product(self):
+        product = self.cleaned_data["product"]
+        return strip_tags(product)
+
+    def clean_description(self):
+        description = self.cleaned_data["description"]
+        return strip_tags(description)
+```
+The code above is used as a custom validation method, and it strips the tags (using strip_tags) of product and description. 
+
+Afterwards, the data can be sanitized using DOMPurify. Implementing this allows new data to be cleaned up. However it will only work if the data obtained is in html, as an API such as json or xml is still considerd "dirty". This is done by opening the main.html file and plaicing a code inside the meta block. Then add the following code 
+
 ---------------------------------------------------------------------------------
 
 # ASSIGNMENT 5 
